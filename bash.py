@@ -1,0 +1,14 @@
+SBATCH --job-name=lstm_hourly_de              
+SBATCH --partition=gpu_4                      
+SBATCH --gres=gpu:1                           
+SBATCH --nodes=1
+SBATCH --ntasks=1
+SBATCH --cpus-per-task=8                       
+SBATCH --mem=32G                               
+SBATCH --time=12:00:00
+#SBATCH --time=10:00:00
+#SBATCH --time=08:00:00
+SBATCH --output=logs/cudalstm_de1h_10ep_******.out                 
+SBATCH --error=logs/cudalstm_de1h_10ep_******.err                  
+SBATCH --mail-type=BEGIN,END,FAIL
+SBATCH --mail-user=ka_yh2352@student.kit.edu   

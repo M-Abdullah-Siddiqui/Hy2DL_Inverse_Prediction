@@ -11,6 +11,7 @@ class Hourly_CAMELS_DE(CAMELS_DE):
     """
      Class to process hourly data in similar format as the CAMELS DE dataset.
 
+
     Parameters
     ----------
      cfg : Config
@@ -19,6 +20,7 @@ class Hourly_CAMELS_DE(CAMELS_DE):
          Defines the period for which the data will be loaded..
     gauge_id : Optional[str | list[str]], default=None
         Id of gauge(s) to be loaded.
+
     """
 
     def __init__(
@@ -42,20 +44,13 @@ class Hourly_CAMELS_DE(CAMELS_DE):
         -------
         df: pd.DataFrame
             Dataframe with the catchments` timeseries
+
         """
         # Read hourly data
         path_timeseries = self.cfg.path_data / "timeseries" / f"CAMELS_DE_1h_hydromet_timeseries_{gauge_id}.csv"
 
         # load time series
         df = pd.read_csv(path_timeseries, index_col="date", parse_dates=["date"])
-
-        # Add lead discharge columns: at time t, each column holds the discharge value
-        # that occurs N hours in the future (t + N). A negative shift pulls future rows
-        # backward to align with the current timestep.
-        lead_hours = [12, 24, 36, 48]
-        base_discharge_col = "discharge_spec_obs"
-        for lead in lead_hours:
-            df[f"discharge_lead_{lead}h"] = df[base_discharge_col].shift(-lead)
 
         return df
 

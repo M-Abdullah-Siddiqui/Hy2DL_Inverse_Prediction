@@ -1,5 +1,4 @@
 # Import necessary packages
-import argparse
 import datetime
 import os
 import shutil
@@ -18,41 +17,16 @@ from hy2dl.utils.config import Config
 
 os.chdir(sys.path[0])  # Change working directory to the script's location
 base_dir = Path.cwd().resolve()
-
 color_palette = {"observed": "#377eb8", "simulated": "#4daf4a"}
+
 
 # ------------------------------
 # Part 1. Initialize information
 # ------------------------------
 if __name__ == "__main__":
-    # Use parse_known_args so this still works fine if launched inside a
-    # notebook/kernel that injects extra arguments (e.g. Jupyter's -f flag).
-    parser = argparse.ArgumentParser(description="Train/test an Hy2DL LSTM rainfall-runoff model.")
-    parser.add_argument(
-        "--config",
-        type=str,
-        default="../examples/configs/camels_de_1h.yml",
-        help="Path to the experiment config YAML. Default: ../examples/configs/camels_de_1h.yml",
-    )
-    parser.add_argument(
-        "--seed",
-        type=int,
-        default=None,
-        help="Override random_seed from the config. If omitted, uses whatever is in the YAML "
-             "(or Hy2DL's own auto-generated seed if the YAML doesn't set one).",
-    )
-    args, _unknown = parser.parse_known_args()
-
     # Read experiment settings
-    path_experiment_settings = args.config
+    path_experiment_settings = "../examples/configs/camels_de_1h.yml"
     config = Config(path_experiment_settings, base_dir=base_dir)
-
-    # Override the seed BEFORE init_experiment()/dump(), so the output folder name
-    # (which includes the seed, e.g. "..._seed_200") and the saved config.yml both
-    # reflect the seed actually used for this run.
-    if args.seed is not None:
-        config.random_seed = args.seed
-
     config.init_experiment()
     config.dump()
 
@@ -62,7 +36,6 @@ if __name__ == "__main__":
     # Create training dataset
     training_dataset = Dataset(cfg=config, time_period="training")
     training_dataset.setup_dataset()
-
     # Initialize training object
     trainer = BaseTrainer(cfg=config, training_dataset=training_dataset)
 
@@ -82,8 +55,8 @@ if __name__ == "__main__":
         trainer.train_model(epoch=epoch)  # Training
         tester_validation.validate_model(model=trainer.model, epoch=epoch)  # Validation
         config.logger.info(trainer.report + tester_validation.validation_report)  # report
-    config.logger.info(f"Total training time: {datetime.timedelta(seconds=int(time.time() - total_time))}\n")
 
+    config.logger.info(f"Total training time: {datetime.timedelta(seconds=int(time.time() - total_time))}\n")
     shutil.rmtree(tester_validation.path_zarr, ignore_errors=True)  # delete validation results
 
     # If I already trained a model, I can re-construct it using the saved parameters from a given epoch

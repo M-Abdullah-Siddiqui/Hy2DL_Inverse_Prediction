@@ -1,28 +1,13 @@
 experiment_name: LSTM_CAMELS_DE_1h_benchmark
-path_data: ../data/CAMELS-DE-1h
-path_entities: ../data/basin_id/basins_camels_de_1h_1611.txt
+path_data: /pfs/work9/workspace/scratch/ka_yh2352-camels_de_1h_data/CAMELS-DE-1h/CAMELS-DE-1h/
+path_entities: /pfs/data6/home/ka/ka_iwu/ka_yh2352/Hy2DL-Testing/basins_list.txt
 dynamic_input:
-  1W:
-  - precipitation_mean_gapfilled
-  - precipitation_stdev_gapfilled
-  - air_temperature_mean
-  - global_radiation_mean
-  - air_pressure_surface_mean
-  - relative_humidity_mean
-  - wind_speed_mean
-  - cloud_cover_mean
-  1D:
-  - precipitation_mean_gapfilled
-  - precipitation_stdev_gapfilled
-  - air_temperature_mean
-  - global_radiation_mean
-  - air_pressure_surface_mean
-  - relative_humidity_mean
-  - wind_speed_mean
-  - cloud_cover_mean
   1h:
-  - precipitation_mean_gapfilled
-  - precipitation_stdev_gapfilled
+  - discharge_spec_obs
+  - discharge_lead_12h
+  - discharge_lead_24h
+  - discharge_lead_36h
+  - discharge_lead_48h
   - air_temperature_mean
   - global_radiation_mean
   - air_pressure_surface_mean
@@ -30,25 +15,14 @@ dynamic_input:
   - wind_speed_mean
   - cloud_cover_mean
 target:
-  - discharge_spec_obs
+- precipitation_mean
+- precipitation_max
+- precipitation_stdev
 static_input:
-  - area
-  - elev_mean
-  - clay_0_30cm_mean
-  - sand_0_30cm_mean
-  - silt_0_30cm_mean
-  - artificial_surfaces_perc
-  - agricultural_areas_perc
-  - forests_and_seminatural_areas_perc
-  - wetlands_perc
-  - water_bodies_perc
-  - p_mean
-  - p_seasonality
-  - frac_snow
-  - high_prec_freq
-  - low_prec_freq
-  - high_prec_dur
-  - low_prec_dur
+- area
+- elev_mean
+- p_mean
+- frac_snow
 training_period:
 - '2004-01-01 01:00:00'
 - '2019-12-31 23:00:00'
@@ -67,15 +41,9 @@ learning_rate:
   1: 0.0005
   5: 0.0001
   8: 5.0e-05
-validate_every: 5
-seq_length: 8760
+validate_every: 4
+seq_length: 96
 custom_seq_processing:
-  1W:
-    n_steps: 24
-    freq_factor: 168
-  1D:
-    n_steps: 193
-    freq_factor: 24
   1h:
     n_steps: 96
     freq_factor: 1
@@ -86,9 +54,9 @@ dynamic_embedding:
   hiddens:
   - 8
 device: gpu
-num_workers: 76
+num_workers: 8
 random_seed: 100
 dataset: hourly_camels_de
-model: CudaLSTM
+model: cudalstm
 initial_forget_bias: 3.0
-dataset_in_ram: True
+dataset_in_ram: true
