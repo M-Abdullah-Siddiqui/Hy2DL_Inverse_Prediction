@@ -1,0 +1,115 @@
+{
+    "metadata": {
+        ".zattrs": {},
+        ".zgroup": {
+            "zarr_format": 2
+        },
+        "__xarray_dataarray_variable__/.zarray": {
+            "chunks": [
+                2,
+                221,
+                3
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                2,
+                221,
+                3
+            ],
+            "zarr_format": 2
+        },
+        "__xarray_dataarray_variable__/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "metric",
+                "gauge_id",
+                "feature"
+            ]
+        },
+        "feature/.zarray": {
+            "chunks": [
+                3
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<U19",
+            "fill_value": null,
+            "filters": null,
+            "order": "C",
+            "shape": [
+                3
+            ],
+            "zarr_format": 2
+        },
+        "feature/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "feature"
+            ]
+        },
+        "gauge_id/.zarray": {
+            "chunks": [
+                221
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<U8",
+            "fill_value": null,
+            "filters": null,
+            "order": "C",
+            "shape": [
+                221
+            ],
+            "zarr_format": 2
+        },
+        "gauge_id/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "gauge_id"
+            ]
+        },
+        "metric/.zarray": {
+            "chunks": [
+                2
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<U4",
+            "fill_value": null,
+            "filters": null,
+            "order": "C",
+            "shape": [
+                2
+            ],
+            "zarr_format": 2
+        },
+        "metric/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "metric"
+            ]
+        }
+    },
+    "zarr_consolidated_format": 1
+}

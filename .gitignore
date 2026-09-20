@@ -3,7 +3,6 @@
 # Project folders
 docs/build/*
 experiments
-results/*
 benchmarks/*/
 
 # File extensions
@@ -177,3 +176,4 @@ cython_debug/
 logs/
 
 camels_data_link/
+results/*/model/

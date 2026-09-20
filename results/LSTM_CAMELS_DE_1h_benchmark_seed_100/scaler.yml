@@ -1,0 +1,40 @@
+xd_mean:
+  discharge_spec_obs: 0.05611846223473549
+  discharge_lead_12h: 0.05612053722143173
+  discharge_lead_24h: 0.05612220987677574
+  discharge_lead_36h: 0.056123729795217514
+  discharge_lead_48h: 0.05612524226307869
+  air_temperature_mean: 8.780951499938965
+  global_radiation_mean: 135.245849609375
+  air_pressure_surface_mean: 946.8403930664062
+  relative_humidity_mean: 78.61592864990234
+  wind_speed_mean: 3.139943838119507
+  cloud_cover_mean: 66.11187744140625
+  precipitation_mean: 0.100911945104599
+  precipitation_max: 0.3336259126663208
+  precipitation_stdev: 0.0566643662750721
+xd_std:
+  discharge_spec_obs: 0.10680024325847626
+  discharge_lead_12h: 0.10680101066827774
+  discharge_lead_24h: 0.10680145025253296
+  discharge_lead_36h: 0.10680178552865982
+  discharge_lead_48h: 0.10680223256349564
+  air_temperature_mean: 8.09748363494873
+  global_radiation_mean: 210.7054443359375
+  air_pressure_surface_mean: 21.7774715423584
+  relative_humidity_mean: 16.889968872070312
+  wind_speed_mean: 1.7297377586364746
+  cloud_cover_mean: 34.18726348876953
+  precipitation_mean: 0.4645516872406006
+  precipitation_max: 1.4285718202590942
+  precipitation_stdev: 0.2475145161151886
+xs_mean:
+  area: 332.88190045248894
+  elev_mean: 603.0537104072398
+  p_mean: 0.10325791855203617
+  frac_snow: 0.05674208144796376
+xs_std:
+  area: 537.2644356627957
+  elev_mean: 178.98082971940698
+  p_mean: 0.020298039341213162
+  frac_snow: 0.026521936506023934

@@ -1,0 +1,152 @@
+{
+    "metadata": {
+        ".zattrs": {},
+        ".zgroup": {
+            "zarr_format": 2
+        },
+        "date/.zarray": {
+            "chunks": [
+                21924
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<i8",
+            "fill_value": null,
+            "filters": null,
+            "order": "C",
+            "shape": [
+                43847
+            ],
+            "zarr_format": 2
+        },
+        "date/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "date"
+            ],
+            "calendar": "proleptic_gregorian",
+            "units": "hours since 2020-01-01 01:00:00"
+        },
+        "feature/.zarray": {
+            "chunks": [
+                3
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<U19",
+            "fill_value": null,
+            "filters": null,
+            "order": "C",
+            "shape": [
+                3
+            ],
+            "zarr_format": 2
+        },
+        "feature/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "feature"
+            ]
+        },
+        "gauge_id/.zarray": {
+            "chunks": [
+                221
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "|O",
+            "fill_value": null,
+            "filters": [
+                {
+                    "id": "vlen-utf8"
+                }
+            ],
+            "order": "C",
+            "shape": [
+                221
+            ],
+            "zarr_format": 2
+        },
+        "gauge_id/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "gauge_id"
+            ]
+        },
+        "y_obs/.zarray": {
+            "chunks": [
+                1,
+                43847,
+                3
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                221,
+                43847,
+                3
+            ],
+            "zarr_format": 2
+        },
+        "y_obs/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "gauge_id",
+                "date",
+                "feature"
+            ]
+        },
+        "y_sim/.zarray": {
+            "chunks": [
+                1,
+                43847,
+                3
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                221,
+                43847,
+                3
+            ],
+            "zarr_format": 2
+        },
+        "y_sim/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "gauge_id",
+                "date",
+                "feature"
+            ]
+        }
+    },
+    "zarr_consolidated_format": 1
+}
